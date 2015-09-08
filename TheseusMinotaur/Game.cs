@@ -15,60 +15,7 @@ namespace TheseusMinotaur
         Tile[,] theMap;
         Filer theFiler;
 
-        
-        /**** Map Constructor */
-        /*
-        public Tile[,] CreateMap(int newWidth, int newHeight) 
-        {
-            Tile[,] Map;
-            int width = newWidth, height = newHeight;
-            Map = new Tile[width, height];
 
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    Map[x, y] = new Tile(x, y);
-                }
-            }
-            return Map;
-        }
-        public Theseus SetTheseus(int newX, int newY)
-        {
-            theseus = new Theseus(newX, newY);
-            theseus.SetGame(this);
-            return theseus;
-        }
-        public Minotaur SetMinotaur(int newX, int newY)
-        {
-            minotaur = new Minotaur(newX, newY);
-            minotaur.SetGame(this);
-            return minotaur;
-        }
-
-        public void MapOne()
-        {
-            // create the map
-            //Tile[,] 
-            mapOne = CreateMap(4, 3);
-            mapOne[0, 0].MyWalls = TheWalls.North | TheWalls.West;
-            mapOne[1, 0].MyWalls = TheWalls.North | TheWalls.South;
-            mapOne[2, 0].MyWalls = TheWalls.North | TheWalls.East;
-
-            mapOne[0, 1].MyWalls = TheWalls.West;
-            mapOne[1, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.South;
-            mapOne[2, 1].MyWalls = TheWalls.West;
-            mapOne[3, 1].MyWalls = TheWalls.North | TheWalls.South | TheWalls.End;
-
-            mapOne[0, 2].MyWalls = TheWalls.West | TheWalls.South;
-            mapOne[1, 2].MyWalls = TheWalls.South | TheWalls.North;
-            mapOne[2, 2].MyWalls = TheWalls.South | TheWalls.East;
-
-            // set positions of characters
-            minotaur = SetMinotaur(1, 0);
-            theseus = SetTheseus(1, 2);
-        }
-        */
 
         /**** Import Map from Filer */
         public void SetMap() //(int theMap)
@@ -125,14 +72,6 @@ namespace TheseusMinotaur
                         {
                             output += "|   ";
                         }
-                        /*if (mapOne[x, y].MyWalls.HasFlag(TheWalls.West) && mapOne[x, y].MyWalls.HasFlag(TheWalls.East) && !mapOne[x, y].MyWalls.HasFlag(TheWalls.End))
-                        {
-                            output += "|   |";
-                        }
-                        if (!mapOne[x, y].MyWalls.HasFlag(TheWalls.West) && mapOne[x, y].MyWalls.HasFlag(TheWalls.East) && !mapOne[x, y].MyWalls.HasFlag(TheWalls.End))
-                        {
-                            output += "    |";
-                        }*/
                         if (!theMap[x, y].MyWalls.HasFlag(TheWalls.West) && !theMap[x, y].MyWalls.HasFlag(TheWalls.End))// && !mapOne[x, y].MyWalls.HasFlag(TheWalls.East) 
                         {
                             output += "    ";
@@ -196,21 +135,21 @@ namespace TheseusMinotaur
 
                     if (x == minotaur.Coordinate.X && y == minotaur.Coordinate.Y)
                     {
-                        StringBuilder newAscii = new StringBuilder(output);
-                        newAscii[output.Length - 2] = 'M';
-                        output = newAscii.ToString();
+                        StringBuilder minoPosition = new StringBuilder(output);
+                        minoPosition[output.Length - 2] = 'M';
+                        output = minoPosition.ToString();
                     }
                     if (x == theseus.Coordinate.X && y == theseus.Coordinate.Y)
                     {
-                        StringBuilder newAscii = new StringBuilder(output);
-                        newAscii[output.Length - 2] = 'T';
-                        output = newAscii.ToString();
+                        StringBuilder thesPosition = new StringBuilder(output);
+                        thesPosition[output.Length - 2] = 'T';
+                        output = thesPosition.ToString();
                     }
 
                 }
                 output += "\n";
 
-               
+
             }
 
             // lowest row of map
@@ -229,16 +168,6 @@ namespace TheseusMinotaur
             output += ".\n";
 
 
-            /*
-            if (column == Theseus.Position.X && row == Theseus.Position.Y)
-            {
-                StringBuilder newAscii = new StringBuilder(ascii);
-                newAscii[ascii.Length - 3] = 'T';
-                ascii = newAscii.ToString();
-            }
-            */
-
-
             Console.WriteLine(output);
         }
 
@@ -249,7 +178,7 @@ namespace TheseusMinotaur
         {
             return theMap;
         }
-        
+
         public Theseus GetTheseus()
         {
             return theseus;
@@ -267,7 +196,7 @@ namespace TheseusMinotaur
             return output;
         }
 
-  
+
         /**** Game functions */
 
         // return the Player's move
@@ -278,7 +207,7 @@ namespace TheseusMinotaur
             if (theKey.Key == ConsoleKey.UpArrow)
             {
                 Console.WriteLine("Up");
-                return Direction.Up;    
+                return Direction.Up;
             }
             if (theKey.Key == ConsoleKey.DownArrow)
             {
@@ -309,7 +238,7 @@ namespace TheseusMinotaur
             if (direction != null)
             {
                 return (theseus.Move(direction));
-                
+
             }
             return false;
         }
@@ -324,23 +253,23 @@ namespace TheseusMinotaur
         }
 
 
-            /* The go button */
+        /* The go button */
         public void Run()
         {
             Console.Clear();
             DrawMap();
             Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
             while (IsGameOver() == false)
+            {
+                while (!Move())
                 {
-                    while (!Move())
-                    {
-                        Console.WriteLine("blocked");
-                    }
-                    minotaur.Hunt();
-                    Console.Clear();
-                    DrawMap();
-                Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
+                    Console.WriteLine("blocked");
                 }
+                minotaur.Hunt();
+                Console.Clear();
+                DrawMap();
+                Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
+            }
             if (IsGameOver() && theseus.IsFinished())
             {
                 Console.WriteLine("Congrats!");
@@ -349,7 +278,7 @@ namespace TheseusMinotaur
             {
                 Console.WriteLine("Tastes like chicken");
                 Console.WriteLine("Game over");
-            }            
+            }
         }
 
     }

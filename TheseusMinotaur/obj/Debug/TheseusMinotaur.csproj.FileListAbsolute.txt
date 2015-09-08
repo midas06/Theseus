@@ -5,3 +5,9 @@ H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinot
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.csprojResolveAssemblyReference.cache
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusMinotaur\bin\Debug\TheseusMinotaur.pdb
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusMinotaur\obj\Debug\TheseusMinotaur.csprojResolveAssemblyReference.cache
