@@ -26,3 +26,27 @@ Fixed:
 To do:
 	- MVC
 	- Model the map, get stuff moving forreals
+
+
+28th Aug:
+
+Fixed: 
+	- button input
+
+Broke:
+	- a lot of stuff.
+
+8th Sep:
+
+Fixed:
+	- a lot of stuff that I broke
+
+Implemented:
+	- changed the way IsBlocked worked
+	- changed the way movement is calculated
+	- implemented struct for direction of movement
+	
+	NB: this fixed the inherent problems T & M had with movement, & M 'stealing' a turn when T was blocked and didn't move.
+
+
+	- ASCII map implemented, partly stolen from Mesa, thanks
