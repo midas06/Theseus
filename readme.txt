@@ -66,3 +66,6 @@ Implemented:
 
 Fixed: 
 	- Ascii map builder showing 2 walls on exit
+
+Added:
+	- basic test cases
