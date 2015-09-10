@@ -18,13 +18,13 @@ namespace TheseusMinotaur
         End = 0x10
     }
 
-    public struct Direction
+    internal struct Direction
     {
-        public static Point Up = new Point(0, -1);
-        public static Point Down = new Point(0, 1);
-        public static Point Right = new Point(1, 0);
-        public static Point Left = new Point(-1, 0);
-        public static Point Pass = new Point(0, 0);
+        internal static Point Up = new Point(0, -1);
+        internal static Point Down = new Point(0, 1);
+        internal static Point Right = new Point(1, 0);
+        internal static Point Left = new Point(-1, 0);
+        internal static Point Pass = new Point(0, 0);
     }
 
 }

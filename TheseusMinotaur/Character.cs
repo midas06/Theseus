@@ -10,12 +10,13 @@ namespace TheseusMinotaur
 {
     class Character : Thing
     {
-        public Character(int x, int y) : base(x, y)
+        public Character(int x, int y)
+            : base(x, y)
         {
 
         }
 
-        public bool IsBlocked(Point direction)
+        internal bool IsBlocked(Point direction)
         {
             Point intendedTile = new Point(Coordinate.X + direction.X, Coordinate.Y + direction.Y);
 
@@ -65,14 +66,14 @@ namespace TheseusMinotaur
 
 
 
-        public bool Move(Point direction)
+        internal bool Move(Point direction)
         {
             if (!IsBlocked(direction))
             {
-            //    Console.WriteLine(direction);
+                //    Console.WriteLine(direction);
                 Coordinate.Offset(direction);
                 Console.WriteLine(Coordinate);
-                return true; 
+                return true;
             }
             return false;
         }

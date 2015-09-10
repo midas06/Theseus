@@ -8,11 +8,12 @@ namespace TheseusMinotaur
 {
     class Theseus : Character
     {
-        public Theseus(int x, int y) : base(x, y)
+        public Theseus(int x, int y)
+            : base(x, y)
         {
 
         }
-        public Boolean IsFinished()
+        internal Boolean IsFinished()
         {
             if (myGame.GetMap()[Coordinate.X, Coordinate.Y].MyWalls.HasFlag(TheWalls.End))
             {
@@ -23,6 +24,6 @@ namespace TheseusMinotaur
                 return false;
             }
         }
-        
+
     }
 }

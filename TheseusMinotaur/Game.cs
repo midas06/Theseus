@@ -11,34 +11,42 @@ namespace TheseusMinotaur
     {
         Minotaur minotaur;
         Theseus theseus;
-        //Tile[,] mapOne;
         Tile[,] theMap;
         Filer theFiler;
-
-
+        int currentMap;
 
         /**** Import Map from Filer */
-        public void SetMap() //(int theMap)
+
+        public void SetMap(int aMap)
         {
+            currentMap = aMap;
             theFiler = new Filer();
-            theMap = theFiler.GetMapOne();
+            theFiler.Init();
+            theMap = theFiler.GetMap(aMap);
             SetTheseus(theFiler.GetTheseus());
             SetMinotaur(theFiler.GetMinotaur());
-            //return theFiler.DrawMap();
         }
 
-        internal void SetTheseus(Theseus newTheseus)
+        public void Restart()
+        {
+            theMap = theFiler.GetMap(currentMap);
+            SetTheseus(theFiler.GetTheseus());
+            SetMinotaur(theFiler.GetMinotaur());
+            Run();
+        }
+
+        protected void SetTheseus(Theseus newTheseus)
         {
             theseus = newTheseus;
             theseus.SetGame(this);
         }
-        internal void SetMinotaur(Minotaur newMinotaur)
+        protected void SetMinotaur(Minotaur newMinotaur)
         {
             minotaur = newMinotaur;
             minotaur.SetGame(this);
         }
 
-        public void DrawMap()
+        protected void DrawMap()
         {
             string output = "";
             int width = theMap.GetLength(0);
@@ -174,18 +182,18 @@ namespace TheseusMinotaur
 
 
         /**** Get functions for Thing class */
-        public Tile[,] GetMap()
+        internal Tile[,] GetMap()
         {
             return theMap;
         }
 
-        public Theseus GetTheseus()
+        internal Theseus GetTheseus()
         {
             return theseus;
         }
 
         /**** Test functions */
-        public String TestMap(Tile[,] aMap)
+        protected String TestMap(Tile[,] aMap)
         {
             string output = "";
             foreach (Tile tile in aMap)
@@ -200,7 +208,7 @@ namespace TheseusMinotaur
         /**** Game functions */
 
         // return the Player's move
-        public Point PlayersTurn()
+        protected Point PlayersTurn()
         {
             ConsoleKeyInfo theKey = Console.ReadKey();
 
@@ -232,7 +240,7 @@ namespace TheseusMinotaur
             return new Point();
         }
 
-        public bool Move()
+        protected bool Move()
         {
             Point direction = PlayersTurn();
             if (direction != null)
@@ -254,32 +262,40 @@ namespace TheseusMinotaur
 
 
         /* The go button */
-        public void Run()
+        public bool Run()
         {
             Console.Clear();
             DrawMap();
-            Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
             while (IsGameOver() == false)
             {
+                Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
                 while (!Move())
                 {
                     Console.WriteLine("blocked");
                 }
-                minotaur.Hunt();
+                if (!theseus.IsFinished())
+                {
+                    minotaur.Hunt();
+
+                }
                 Console.Clear();
                 DrawMap();
-                Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
+
             }
             if (IsGameOver() && theseus.IsFinished())
             {
                 Console.WriteLine("Congrats!");
+                return false;
             }
             if (IsGameOver() && minotaur.HasEaten())
             {
                 Console.WriteLine("Tastes like chicken");
                 Console.WriteLine("Game over");
+                return false;
             }
+            return true;
         }
+
 
     }
 }

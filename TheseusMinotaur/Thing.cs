@@ -17,7 +17,7 @@ namespace TheseusMinotaur
         {
             Coordinate = new Point(x, y);
         }
-        public void SetGame(Game aGame)
+        internal void SetGame(Game aGame)
         {
             myGame = aGame;
         }

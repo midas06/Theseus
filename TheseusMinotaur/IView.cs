@@ -9,6 +9,8 @@ namespace TheseusMinotaur
     interface IView
     {
         void Start();
+        int SetLevel(string prompt);
+        void Display<T>(T message);
         void Stop();
     }
 }

@@ -9,7 +9,8 @@ namespace TheseusMinotaur
 {
     class Minotaur : Character
     {
-        public Minotaur(int x, int y) : base(x, y)
+        public Minotaur(int x, int y)
+            : base(x, y)
         {
 
         }
@@ -25,7 +26,7 @@ namespace TheseusMinotaur
                 {
                     HuntVertical();
                 }
-               // Console.WriteLine("mino new pos " + Coordinate);
+                // Console.WriteLine("mino new pos " + Coordinate);
             }
             if (Coordinate.X < theseus.Coordinate.X)
             {
@@ -33,7 +34,7 @@ namespace TheseusMinotaur
                 {
                     HuntVertical();
                 }
-//                Console.WriteLine("mino new pos " + Coordinate);
+                //                Console.WriteLine("mino new pos " + Coordinate);
             }
         }
 
@@ -49,7 +50,7 @@ namespace TheseusMinotaur
                 {
                     Console.WriteLine("blocked");
                 }
-              //  Console.WriteLine("mino new pos " + Coordinate);
+                //  Console.WriteLine("mino new pos " + Coordinate);
             }
             if (Coordinate.Y < theseus.Coordinate.Y)
             {
@@ -57,7 +58,7 @@ namespace TheseusMinotaur
                 {
                     Console.WriteLine("blocked");
                 }
-             //   Console.WriteLine("mino new pos " + Coordinate);
+                //   Console.WriteLine("mino new pos " + Coordinate);
 
             }
 
@@ -65,7 +66,7 @@ namespace TheseusMinotaur
 
         }
 
-        public void Hunt()
+        internal void Hunt()
         {
             Theseus theseus = myGame.GetTheseus();
             for (int i = 0; i < 2; i++)
@@ -84,7 +85,7 @@ namespace TheseusMinotaur
         }
 
 
-        public Boolean HasEaten()
+        internal Boolean HasEaten()
         {
             Theseus theseus = myGame.GetTheseus();
             if (Coordinate == theseus.Coordinate)
@@ -93,7 +94,7 @@ namespace TheseusMinotaur
             }
             return false;
         }
-        
+
     }
 }
 

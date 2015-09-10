@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="ConsoleView.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Filer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IView.cs" />
