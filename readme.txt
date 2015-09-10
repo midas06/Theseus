@@ -50,3 +50,11 @@ Implemented:
 
 
 	- ASCII map implemented, partly stolen from Mesa, thanks
+
+9th Sep:
+
+Implemented:
+	- fixed visibility of classes
+	- MVC (kind of - still relying on console.writeline for some stuff)
+	- restart & change levels
+	- working levels up to level 5

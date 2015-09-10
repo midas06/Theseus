@@ -10,8 +10,7 @@ namespace TheseusMinotaur
 {
     class Character : Thing
     {
-        public Character(int x, int y)
-            : base(x, y)
+        public Character(int x, int y) : base(x, y)
         {
 
         }
@@ -70,7 +69,6 @@ namespace TheseusMinotaur
         {
             if (!IsBlocked(direction))
             {
-                //    Console.WriteLine(direction);
                 Coordinate.Offset(direction);
                 Console.WriteLine(Coordinate);
                 return true;

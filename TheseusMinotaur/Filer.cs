@@ -102,11 +102,8 @@ namespace TheseusMinotaur
             }
 
             theMap[0, 4].MyWalls = TheWalls.North | TheWalls.East;
-            theMap[2, 4].MyWalls = TheWalls.North;
+            theMap[2, 4].MyWalls = TheWalls.North | TheWalls.West;
             theMap[1, 4].MyWalls = TheWalls.West | TheWalls.East | TheWalls.End;
-
-
-
 
             theMap[1, 1].MyWalls = TheWalls.East | TheWalls.West | TheWalls.South;
             theMap[0, 1].MyWalls = TheWalls.East;
@@ -194,7 +191,7 @@ namespace TheseusMinotaur
             theMap[0, 0].MyWalls = TheWalls.South;
 
             theMap[4, 1].MyWalls = TheWalls.North | TheWalls.East;
-            theMap[4, 0].MyWalls = TheWalls.South;
+            theMap[4, 0].MyWalls = TheWalls.West | TheWalls.South;
 
             theMap[0, 5].MyWalls = TheWalls.West | TheWalls.South;
             theMap[4, 5].MyWalls = TheWalls.South | TheWalls.East;
@@ -282,6 +279,124 @@ namespace TheseusMinotaur
 
         }
 
+        protected void SetMapSix()
+        {
+            theMap = CreateMap(6, 7);
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (i != 4)
+                {
+                    theMap[i, 0].MyWalls = TheWalls.South;
+                    theMap[i, 1].MyWalls = TheWalls.North;
+                }
+                theMap[i, 6].MyWalls = TheWalls.South;
+            }
+            for (int i = 1; i < 7; i++)
+            {
+                theMap[0, i].MyWalls = TheWalls.West;
+                theMap[5, i].MyWalls = TheWalls.East;
+            }
+
+            theMap[0, 6].MyWalls = TheWalls.West | TheWalls.South;
+            theMap[5, 6].MyWalls = TheWalls.South | TheWalls.East;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West | TheWalls.South;
+            theMap[0, 2].MyWalls = TheWalls.North | TheWalls.West;
+            
+            theMap[5, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West;
+            theMap[4, 1].MyWalls = TheWalls.East;
+
+            theMap[5, 2].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[4, 2].MyWalls = TheWalls.East | TheWalls.South | TheWalls.West;
+            theMap[3, 2].MyWalls = TheWalls.East;
+            theMap[4, 3].MyWalls = TheWalls.North | TheWalls.South;
+            theMap[4, 4].MyWalls = TheWalls.North | TheWalls.West;
+
+            theMap[2, 2].MyWalls = TheWalls.West;
+            theMap[1, 2].MyWalls = TheWalls.East | TheWalls.South;
+            theMap[1, 3].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West;
+            theMap[0, 3].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[2, 3].MyWalls = TheWalls.West | TheWalls.South | TheWalls.East;
+            theMap[3, 3].MyWalls = TheWalls.West;
+
+            theMap[1, 4].MyWalls = TheWalls.West;
+            theMap[0, 4].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[0, 5].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[1, 5].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[2, 5].MyWalls = TheWalls.West | TheWalls.North;
+            theMap[2, 4].MyWalls = TheWalls.North | TheWalls.South;
+
+            theMap[3, 0].MyWalls = TheWalls.East;
+            theMap[4, 0].MyWalls = TheWalls.East | TheWalls.West | TheWalls.End;
+            theMap[5, 0].MyWalls = TheWalls.West;
+
+
+
+            allMyMaps[6] = theMap;
+        }
+
+        protected void SetMapSeven()
+        {
+            theMap = CreateMap(6, 7);
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (i != 1)
+                {
+                    theMap[i, 0].MyWalls = TheWalls.South;
+                    theMap[i, 1].MyWalls = TheWalls.North;
+                }
+                theMap[i, 6].MyWalls = TheWalls.South;
+            }
+
+            for (int i = 1; i < 7; i++)
+            {
+                theMap[0, i].MyWalls = TheWalls.West;
+                theMap[5, i].MyWalls = TheWalls.East;
+            }
+
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
+            theMap[0, 6].MyWalls = TheWalls.South | TheWalls.West;
+            theMap[5, 6].MyWalls = TheWalls.South | TheWalls.East;
+            theMap[5, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West;
+
+            theMap[4, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.South;
+            theMap[4, 2].MyWalls = TheWalls.North | TheWalls.South;
+            theMap[4, 3].MyWalls = TheWalls.North | TheWalls.East;
+            
+            theMap[5, 3].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[5, 4].MyWalls = TheWalls.East | TheWalls.West;
+            theMap[4, 4].MyWalls = TheWalls.East | TheWalls.West | TheWalls.South;
+            theMap[4, 5].MyWalls = TheWalls.North | TheWalls.East;
+            theMap[5, 5].MyWalls = TheWalls.West | TheWalls.East;
+
+            theMap[2, 5].MyWalls = TheWalls.South;
+            theMap[2, 6].MyWalls = TheWalls.North | TheWalls.South;
+
+            theMap[0, 4].MyWalls = TheWalls.West | TheWalls.South | TheWalls.East;
+            theMap[1, 4].MyWalls = TheWalls.West;
+            theMap[0, 5].MyWalls = TheWalls.West | TheWalls.North;
+
+            theMap[0, 0].MyWalls = TheWalls.East | TheWalls.South;
+            theMap[1, 0].MyWalls = TheWalls.West | TheWalls.East | TheWalls.End;
+            theMap[2, 0].MyWalls = TheWalls.West | TheWalls.South;
+
+            theMap[1, 1].MyWalls = TheWalls.South;
+            theMap[1, 2].MyWalls = TheWalls.North;
+
+            theMap[2, 2].MyWalls = TheWalls.East;
+            theMap[3, 2].MyWalls = TheWalls.West;
+
+            theMap[2, 3].MyWalls = TheWalls.East;
+            theMap[3, 3].MyWalls = TheWalls.West;
+            theMap[3, 4].MyWalls = TheWalls.East;
+
+
+
+            allMyMaps[7] = theMap;
+        }
+
+
         public void Init()
         {
             SetMapOne();
@@ -289,6 +404,8 @@ namespace TheseusMinotaur
             SetMapThree();
             SetMapFour();
             SetMapFive();
+            SetMapSix();
+            SetMapSeven();
         }
 
 
@@ -315,6 +432,14 @@ namespace TheseusMinotaur
                 case 5:
                     theseus = SetTheseus(2, 1);
                     minotaur = SetMinotaur(2, 4);
+                    break;
+                case 6:
+                    theseus = SetTheseus(0, 1);
+                    minotaur = SetMinotaur(4, 3);
+                    break;
+                case 7:
+                    theseus = SetTheseus(4, 5);
+                    minotaur = SetMinotaur(0, 5);
                     break;
                 default:
                     break;

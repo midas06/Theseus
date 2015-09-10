@@ -35,6 +35,14 @@ namespace TheseusMinotaur
             Run();
         }
 
+        public void NextMap()
+        {
+            theMap = theFiler.GetMap(currentMap + 1);
+            SetTheseus(theFiler.GetTheseus());
+            SetMinotaur(theFiler.GetMinotaur());
+            Run();
+        }
+
         protected void SetTheseus(Theseus newTheseus)
         {
             theseus = newTheseus;
@@ -91,11 +99,11 @@ namespace TheseusMinotaur
                         }
                         if (theMap[x, y].MyWalls.HasFlag(TheWalls.West) && theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
-                            output += "| X |";
+                            output += "| X "; //"| X |";
                         }
                         if (!theMap[x, y].MyWalls.HasFlag(TheWalls.West) && theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
-                            output += "  X |";
+                            output += "  X "; //"  X |";
                         }
                         if (!theMap[x, y].MyWalls.HasFlag(TheWalls.West) && !theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
@@ -124,15 +132,15 @@ namespace TheseusMinotaur
 
                         if (theMap[x, y].MyWalls.HasFlag(TheWalls.West) && !theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
-                            output += "| X ";
+                            output += "| X ";//"| X ";
                         }
                         if (theMap[x, y].MyWalls.HasFlag(TheWalls.West) && theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
-                            output += "| X |";
+                            output += "| X ";//"| X |";
                         }
                         if (!theMap[x, y].MyWalls.HasFlag(TheWalls.West) && theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
-                            output += "  X |";
+                            output += "  X ";//"  X |";
                         }
                         if (!theMap[x, y].MyWalls.HasFlag(TheWalls.West) && !theMap[x, y].MyWalls.HasFlag(TheWalls.East) && theMap[x, y].MyWalls.HasFlag(TheWalls.End))
                         {
@@ -271,6 +279,9 @@ namespace TheseusMinotaur
                 Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
                 while (!Move())
                 {
+                    Console.Clear();
+                    DrawMap();
+                    Console.WriteLine("Press Up, Down, Left, Right to move; Press A to do nothing");
                     Console.WriteLine("blocked");
                 }
                 if (!theseus.IsFinished())

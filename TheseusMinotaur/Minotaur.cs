@@ -9,8 +9,7 @@ namespace TheseusMinotaur
 {
     class Minotaur : Character
     {
-        public Minotaur(int x, int y)
-            : base(x, y)
+        public Minotaur(int x, int y) : base(x, y)
         {
 
         }
@@ -26,7 +25,6 @@ namespace TheseusMinotaur
                 {
                     HuntVertical();
                 }
-                // Console.WriteLine("mino new pos " + Coordinate);
             }
             if (Coordinate.X < theseus.Coordinate.X)
             {
@@ -34,11 +32,8 @@ namespace TheseusMinotaur
                 {
                     HuntVertical();
                 }
-                //                Console.WriteLine("mino new pos " + Coordinate);
             }
         }
-
-
 
         protected void HuntVertical()
         {
@@ -50,7 +45,6 @@ namespace TheseusMinotaur
                 {
                     Console.WriteLine("blocked");
                 }
-                //  Console.WriteLine("mino new pos " + Coordinate);
             }
             if (Coordinate.Y < theseus.Coordinate.Y)
             {
@@ -58,12 +52,7 @@ namespace TheseusMinotaur
                 {
                     Console.WriteLine("blocked");
                 }
-                //   Console.WriteLine("mino new pos " + Coordinate);
-
             }
-
-
-
         }
 
         internal void Hunt()

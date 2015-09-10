@@ -19,12 +19,16 @@ namespace TheseusMinotaur
 
         public void GameOver()
         {
-            view.Display("Press 'R' to restart, press 'L' to change levels");
+            view.Display("Press 'R' to restart, \npress 'N' to go to the next level, \npress 'L' to select a level, \npress 'X' to quit");
             ConsoleKeyInfo theKey = Console.ReadKey();
 
             if (theKey.Key == ConsoleKey.R)
             {
                 model.Restart();
+            }
+            if (theKey.Key == ConsoleKey.N)
+            {
+                model.NextMap();
             }
             if (theKey.Key == ConsoleKey.L)
             {
@@ -32,10 +36,8 @@ namespace TheseusMinotaur
             }
             if (theKey.Key == ConsoleKey.X)
             {
-                view.Stop();
+                System.Environment.Exit(-1);
             }
-
-
         }
 
 
@@ -47,7 +49,6 @@ namespace TheseusMinotaur
             {
                 GameOver();
             }
-
         }
     }
 }
