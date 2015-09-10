@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace TheseusMinotaur
+namespace Theseus_ClassLibrary
 {
-    class Game
+    public class Game
     {
         Minotaur minotaur;
         Theseus theseus;
@@ -44,18 +44,18 @@ namespace TheseusMinotaur
             Run();
         }
 
-        protected void SetTheseus(Theseus newTheseus)
+        public void SetTheseus(Theseus newTheseus)
         {
             theseus = newTheseus;
             theseus.SetGame(this);
         }
-        protected void SetMinotaur(Minotaur newMinotaur)
+        public void SetMinotaur(Minotaur newMinotaur)
         {
             minotaur = newMinotaur;
             minotaur.SetGame(this);
         }
 
-        protected void DrawMap()
+        public void DrawMap()
         {
             string output = "";
             int width = theMap.GetLength(0);
@@ -191,18 +191,18 @@ namespace TheseusMinotaur
 
 
         /**** Get functions for Thing class */
-        internal Tile[,] GetMap()
+        public Tile[,] GetMap()
         {
             return theMap;
         }
 
-        internal Theseus GetTheseus()
+        public Theseus GetTheseus()
         {
             return theseus;
         }
 
         /**** Test functions */
-        protected String TestMap(Tile[,] aMap)
+        public String TestMap(Tile[,] aMap)
         {
             string output = "";
             foreach (Tile tile in aMap)
@@ -217,7 +217,7 @@ namespace TheseusMinotaur
         /**** Game functions */
 
         // return the Player's move
-        protected Point PlayersTurn()
+        public Point PlayersTurn()
         {
             ConsoleKeyInfo theKey = Console.ReadKey();
 
@@ -249,7 +249,7 @@ namespace TheseusMinotaur
             return new Point();
         }
 
-        protected bool Move()
+        public bool Move()
         {
             Point direction = PlayersTurn();
             if (direction != null)
@@ -260,7 +260,7 @@ namespace TheseusMinotaur
             return false;
         }
 
-        protected bool IsGameOver()
+        public bool IsGameOver()
         {
             if (theseus.IsFinished() || minotaur.HasEaten())
             {
@@ -310,5 +310,37 @@ namespace TheseusMinotaur
             }
             return true;
         }
+
+
+        /*********************************************************************/
+
+        /**** TEST STUFF ****/
+
+        /*********************************************************************/
+
+        public void SetTestMap(int testMap)
+        {
+            currentMap = testMap;
+            theFiler = new Filer();
+            theFiler.InitTestCases();
+            theMap = theFiler.GetTestMaps(testMap);
+            SetTheseus(theFiler.GetTheseus());
+            SetMinotaur(theFiler.GetMinotaur());
+        }
+
+        public Point GetTheseusPosition()
+        {
+            return theseus.Coordinate;
+        }
+        public Point GetMinotaurPosition()
+        {
+            return minotaur.Coordinate;
+        }
+        public Minotaur GetMinotaur()
+        {
+            return minotaur;
+        }
+
+              
     }
 }

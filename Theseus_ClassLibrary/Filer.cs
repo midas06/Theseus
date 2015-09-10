@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheseusMinotaur
+namespace Theseus_ClassLibrary
 {
     class Filer
     {
-        Tile[][,] allMyMaps = new Tile[100][,];
+        Tile[][,] allMyMaps = new Tile[10][,];
         Tile[,] theMap;
-        Theseus theseus;
-        Minotaur minotaur;
+        public Theseus theseus;
+        public Minotaur minotaur;
 
 
         protected Tile[,] CreateMap(int newWidth, int newHeight)
@@ -396,7 +396,6 @@ namespace TheseusMinotaur
             allMyMaps[7] = theMap;
         }
 
-
         public void Init()
         {
             SetMapOne();
@@ -406,7 +405,6 @@ namespace TheseusMinotaur
             SetMapFive();
             SetMapSix();
             SetMapSeven();
-            SetTestMapOne();
         }
 
 
@@ -444,8 +442,8 @@ namespace TheseusMinotaur
                     break;
 
                 case 9:
-                    theseus = SetTheseus(3, 0);
-                   minotaur = SetMinotaur(0, 0);
+                    theseus = SetTheseus(1, 1);
+                    minotaur = SetMinotaur(3, 2);
                     break;
                 default:
                     break;
@@ -459,12 +457,41 @@ namespace TheseusMinotaur
             return allMyMaps[theMap];
         }
 
+        /***** UNIT TEST STUFF ****/
 
+        Tile[][,] allMyTestMaps = new Tile[10][,];
 
-        /*** TO DELETE ****/
+        public void InitTestCases()
+        {
+            SetTestMapOne();
+            SetTestMapTwo();
+        }
+
+        public void SetTestCharacters(int testMap)
+        {
+            switch (testMap)
+            {
+                case 1:
+                    theseus = SetTheseus(1, 1);
+                    minotaur = SetMinotaur(3, 1);
+                    break;
+                case 2:
+                    theseus = SetTheseus(3, 0);
+                    minotaur = SetMinotaur(0, 0);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public Tile[,] GetTestMaps(int theTestMap)
+        {
+            SetTestCharacters(theTestMap);
+            return allMyTestMaps[theTestMap];
+        }
+
         // testing movement of Theseus
-        /*
-        protected void SetTestMapOne()
+        public void SetTestMapOne()
         {
             theMap = CreateMap(4, 3);
 
@@ -490,9 +517,12 @@ namespace TheseusMinotaur
             theMap[3, 2].MyWalls = TheWalls.North;
 
 
-            allMyMaps[9] = theMap;
-        }*/
-        protected void SetTestMapOne()
+            allMyTestMaps[1] = theMap;
+        }
+
+        // testing movement when T is blocked
+        
+        protected void SetTestMapTwo()
         {
             theMap = CreateMap(5, 4);
 
@@ -518,10 +548,12 @@ namespace TheseusMinotaur
             theMap[4, 2].MyWalls = TheWalls.North | TheWalls.South | TheWalls.End;
             theMap[4, 1].MyWalls = TheWalls.West | TheWalls.South;
             theMap[4, 3].MyWalls = TheWalls.West | TheWalls.North;
+            
 
 
-
-            allMyMaps[9] = theMap;
+            allMyTestMaps[2] = theMap;
         }
+
+
     }
 }

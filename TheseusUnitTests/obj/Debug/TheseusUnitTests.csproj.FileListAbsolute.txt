@@ -1,0 +1,7 @@
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.csprojResolveAssemblyReference.cache
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\bin\Debug\TheseusUnitTests.dll
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\bin\Debug\TheseusUnitTests.pdb
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.dll
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.pdb
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.dll
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.pdb
