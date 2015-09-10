@@ -58,3 +58,11 @@ Implemented:
 	- MVC (kind of - still relying on console.writeline for some stuff)
 	- restart & change levels
 	- working levels up to level 5
+
+10th Sep:
+
+Implemented:
+	- up to level 7
+
+Fixed: 
+	- Ascii map builder showing 2 walls on exit
