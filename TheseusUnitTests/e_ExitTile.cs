@@ -7,10 +7,10 @@ using System.Drawing;
 namespace TheseusUnitTests
 {
     [TestClass]
-    public class c_ExitTile
+    public class e_ExitTile
     {
         [TestMethod]
-        public void d_ExitTile_FinishedMap()
+        public void e_ExitTile_FinishedMap()
         {
             Point thesStart;
             bool expected, actual;
@@ -41,7 +41,7 @@ namespace TheseusUnitTests
 
         }
         [TestMethod]
-        public void d_ExitTile_NotFinished()
+        public void e_ExitTile_NotFinished()
         {
             Point thesStart;
             bool expected, actual;

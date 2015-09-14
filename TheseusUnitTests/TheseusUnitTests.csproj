@@ -57,8 +57,9 @@
     <Compile Include="d_MinotaurReactions_Walls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="c_MinotaurReactions.cs" />
-    <Compile Include="c_ExitTile.cs" />
+    <Compile Include="e_ExitTile.cs" />
     <Compile Include="m_MapTests.cs" />
+    <Compile Include="b_Movement_Walls.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Theseus_ClassLibrary\Theseus_ClassLibrary.csproj">

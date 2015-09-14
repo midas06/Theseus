@@ -8,7 +8,7 @@ namespace Theseus_ClassLibrary
 {
     public class Filer
     {
-        Tile[][,] allMyMaps = new Tile[10][,];
+        public Tile[][,] allMyMaps = new Tile[10][,];
         Tile[,] theMap;
         public Theseus theseus;
         public Minotaur minotaur;

@@ -74,3 +74,8 @@ Added:
 
 Implemented:
 	- a whole heap of test cases. I hate my life
+
+14th Sep:
+
+	- Finished basic test cases
+	- if have time - change nextlevel method in Game

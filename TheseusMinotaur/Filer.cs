@@ -408,7 +408,6 @@ namespace TheseusMinotaur
             SetMapFive();
             SetMapSix();
             SetMapSeven();
-            SetTestMapOne();
         }
 
 
@@ -444,11 +443,6 @@ namespace TheseusMinotaur
                     theseus = SetTheseus(4, 5);
                     minotaur = SetMinotaur(0, 5);
                     break;
-
-                case 9:
-                    theseus = SetTheseus(3, 0);
-                   minotaur = SetMinotaur(0, 0);
-                    break;
                 default:
                     break;
             }
@@ -463,72 +457,6 @@ namespace TheseusMinotaur
 
 
 
-        /*** TO DELETE ****/
-        // testing movement of Theseus
-        /*
-        protected void SetTestMapOne()
-        {
-            theMap = CreateMap(4, 3);
-
-            for (int i = 0; i < 4; i++)
-            {
-                theMap[i, 0].MyWalls = TheWalls.North;
-                theMap[i, 2].MyWalls = TheWalls.South;
-            }
-
-            for (int i = 0; i < 3; i++)
-            {
-                theMap[0, i].MyWalls = TheWalls.West;
-                theMap[2, i].MyWalls = TheWalls.East;
-                theMap[3, i].MyWalls = TheWalls.West | TheWalls.East;
-            }
-
-            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.West;
-            theMap[0, 2].MyWalls = TheWalls.South | TheWalls.West;
-            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
-            theMap[2, 2].MyWalls = TheWalls.South | TheWalls.East;
-            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West | TheWalls.South;
-            theMap[3, 0].MyWalls = TheWalls.South;
-            theMap[3, 2].MyWalls = TheWalls.North;
-
-
-            allMyMaps[9] = theMap;
-        }*/
-        protected void SetTestMapOne()
-        {
-            theMap = CreateMap(5, 4);
-
-            for (int i = 0; i < 4; i++)
-            {
-                theMap[i, 0].MyWalls = TheWalls.North;
-                theMap[i, 3].MyWalls = TheWalls.South;
-            }
-
-            for (int i = 0; i < 4; i++)
-            {
-                if (i != 2)
-                {
-                    theMap[0, i].MyWalls = TheWalls.West;
-                    theMap[3, i].MyWalls = TheWalls.East;
-                }
-            }
-
-            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.West; // TheWalls.West;// 
-            theMap[0, 3].MyWalls = TheWalls.South | TheWalls.West; //TheWalls.West; // TheWalls.South | TheWalls.West;
-            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.East;
-            theMap[3, 3].MyWalls = TheWalls.South | TheWalls.East;
-            theMap[4, 2].MyWalls = TheWalls.North | TheWalls.South | TheWalls.End;
-            theMap[4, 1].MyWalls = TheWalls.West | TheWalls.South;
-            theMap[4, 3].MyWalls = TheWalls.West | TheWalls.North;
-
-            theMap[1, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.South | TheWalls.West;
-            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.South;
-            theMap[1, 2].MyWalls = TheWalls.North;
-            theMap[2, 1].MyWalls = TheWalls.West;
-            theMap[0, 1].MyWalls = TheWalls.East | TheWalls.West;
-
-
-            allMyMaps[9] = theMap;
-        }
+        
     }
 }

@@ -44,16 +44,12 @@ namespace TheseusMinotaur
         public void Init()
         {
             view.Start();
-            model.SetMap(view.SetLevel("Choose a map"));
-            /*//model.TestOuterWalls(model.GetMap());
-            //model.WestWallBroken(model.GetMap());
-            // model.EastWallBroken(model.GetMap());
-            // model.SouthWallBroken(model.GetMap());
-            //model.NorthWallBroken(model.GetMap());*/
-            //model.TestEastWalls();
-            //model.TestSouthWalls();
-            //model.TestCorners(model.GetMap());
-            //model.TestAllInnerTiles();
+            while (!model.SetMap(view.SetLevel("Choose a map")))
+            {
+                Console.Clear();
+                view.Display("This map is not valid, please choose another");
+            }
+            
             while (!model.Run())
             {
                 GameOver();

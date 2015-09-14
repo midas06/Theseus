@@ -2218,23 +2218,26 @@ namespace TheseusUnitTests
         /*** TO DO : THE OTHER DIAGONAL TESTS ***/
 
         [TestMethod]
-        public void c_MinotaurReaction_Diagonal_3blocks_downright_1()
+        public void d_MinotaurReaction_Diagonal_blockedright_3blocks_downright_1()
         {
             Point expectedPoint, actualPoint, minStart, thesStart;
             minStart = new Point(0, 0);
             thesStart = new Point(2, 2);
-            expectedPoint = new Point(2, 0);
+            expectedPoint = new Point(1, 1);
             Game aGame = new Game();
             Theseus theseus = aGame.GetTheseus();
             Minotaur minotaur = aGame.GetMinotaur();
 
             aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.West;
             aGame.GetTheseus().Coordinate = thesStart;
             aGame.GetMinotaur().Coordinate = minStart;
 
             /*
             .___.___.___.___.
-            | M   1   2   3 |
+            | M | 1   2   3 |
             .   .   .   .   .
             | 1             |
             .   .   .   .   .___.
@@ -2252,23 +2255,101 @@ namespace TheseusUnitTests
         }
 
         [TestMethod]
-        public void c_MinotaurReaction_Diagonal_3blocks_downright_2()
+        public void d_MinotaurReaction_Diagonal_blockeddown_3blocks_downright_1()
         {
             Point expectedPoint, actualPoint, minStart, thesStart;
             minStart = new Point(0, 0);
-            thesStart = new Point(3, 1);
+            thesStart = new Point(2, 2);
             expectedPoint = new Point(2, 0);
             Game aGame = new Game();
             Theseus theseus = aGame.GetTheseus();
             Minotaur minotaur = aGame.GetMinotaur();
 
             aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.West;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
             aGame.GetTheseus().Coordinate = thesStart;
             aGame.GetMinotaur().Coordinate = minStart;
 
             /*
             .___.___.___.___.
             | M   1   2   3 |
+            .___.   .   .   .
+            | 1             |
+            .   .   .   .   .___.
+            | 2       T       X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockeddownright_3blocks_downright_1()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(0, 0);
+            thesStart = new Point(2, 2);
+            expectedPoint = new Point(0, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.West | TheWalls.East;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.West;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | M | 1   2   3 |
+            .___.   .   .   .
+            | 1             |
+            .   .   .   .   .___.
+            | 2       T       X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+
+
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockedright_3blocks_downright_2()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(0, 0);
+            thesStart = new Point(3, 1);
+            expectedPoint = new Point(1, 1);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.West;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | M | 1   2   3 |
             .   .   .   .   .
             | 1           T |
             .   .   .   .   .___.
@@ -2285,8 +2366,83 @@ namespace TheseusUnitTests
             Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
         }
 
+
         [TestMethod]
-        public void c_MinotaurReaction_Diagonal_3blocks_downright_3()
+        public void d_MinotaurReaction_Diagonal_blockeddown_3blocks_downright_2()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(0, 0);
+            thesStart = new Point(3, 1);
+            expectedPoint = new Point(2, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.West;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | M   1   2   3 |
+            .___.   .   .   .
+            | 1           T |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockeddownright_3blocks_downright_2()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(0, 0);
+            thesStart = new Point(3, 1);
+            expectedPoint = new Point(0, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.West | TheWalls.East;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.West;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | M | 1   2   3 |
+            .___.   .   .   .
+            | 1           T |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockedright_3blocks_downright_3()
         {
             Point expectedPoint, actualPoint, minStart, thesStart;
             minStart = new Point(0, 0);
@@ -2297,13 +2453,52 @@ namespace TheseusUnitTests
             Minotaur minotaur = aGame.GetMinotaur();
 
             aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.East | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.West;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | M | 1   2   3 |
+            .   .   .   .   .
+            | 1             |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3   T         |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockeddown_3blocks_downright_3()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(0, 0);
+            thesStart = new Point(1, 3);
+            expectedPoint = new Point(1, 1);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.West;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
             aGame.GetTheseus().Coordinate = thesStart;
             aGame.GetMinotaur().Coordinate = minStart;
 
             /*
             .___.___.___.___.
             | M   1   2   3 |
-            .   .   .   .   .
+            .___.   .   .   .
             | 1             |
             .   .   .   .   .___.
             | 2               X
@@ -2320,23 +2515,65 @@ namespace TheseusUnitTests
         }
 
         [TestMethod]
-        public void c_MinotaurReaction_Diagonal_3blocks_downleft_1()
+        public void d_MinotaurReaction_Diagonal_blockeddownright_3blocks_downright_3()
         {
             Point expectedPoint, actualPoint, minStart, thesStart;
-            minStart = new Point(3, 0);
-            thesStart = new Point(1, 2);
-            expectedPoint = new Point(1, 0);
+            minStart = new Point(0, 0);
+            thesStart = new Point(1, 3);
+            expectedPoint = new Point(0, 0);
             Game aGame = new Game();
             Theseus theseus = aGame.GetTheseus();
             Minotaur minotaur = aGame.GetMinotaur();
 
             aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.West | TheWalls.East;
+            theMap[0, 1].MyWalls = TheWalls.North | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.West;
             aGame.GetTheseus().Coordinate = thesStart;
             aGame.GetMinotaur().Coordinate = minStart;
 
             /*
             .___.___.___.___.
-            | 0   1   2   M |
+            | M | 1   2   3 |
+            .___.   .   .   .
+            | 1             |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3   T         |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+
+
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockedleft_3blocks_downleft_1()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(1, 2);
+            expectedPoint = new Point(2, 1);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.West | TheWalls.East;
+            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2 | M |
             .   .   .   .   .
             | 1             |
             .   .   .   .   .___.
@@ -2354,7 +2591,116 @@ namespace TheseusUnitTests
         }
 
         [TestMethod]
-        public void c_MinotaurReaction_Diagonal_3blocks_downleft_2()
+        public void d_MinotaurReaction_Diagonal_blockeddown_3blocks_downleft_1()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(1, 2);
+            expectedPoint = new Point(1, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.East;
+            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2   M |
+            .   .   .   .___.
+            | 1             |
+            .   .   .   .   .___.
+            | 2   T           X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockedleftdown_3blocks_downleft_1()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(1, 2);
+            expectedPoint = new Point(3, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.East | TheWalls.West;
+            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East;
+            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2 | M |
+            .   .   .   .___.
+            | 1             |
+            .   .   .   .   .___.
+            | 2   T           X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockedleft_3blocks_downleft_2()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(0, 1);
+            expectedPoint = new Point(2, 1);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.West | TheWalls.East;
+            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2 | M |
+            .   .   .   .   .
+            | T             |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockeddown_3blocks_downleft_2()
         {
             Point expectedPoint, actualPoint, minStart, thesStart;
             minStart = new Point(3, 0);
@@ -2365,13 +2711,53 @@ namespace TheseusUnitTests
             Minotaur minotaur = aGame.GetMinotaur();
 
             aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.East;
+            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East;
             aGame.GetTheseus().Coordinate = thesStart;
             aGame.GetMinotaur().Coordinate = minStart;
 
             /*
             .___.___.___.___.
             | 0   1   2   M |
-            .   .   .   .   .
+            .   .   .   .___.
+            | T             |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3             |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockedleftdown_3blocks_downleft_2()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(0, 1);
+            expectedPoint = new Point(3, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.East | TheWalls.West;
+            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East;
+            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2 | M |
+            .   .   .   .___.
             | T             |
             .   .   .   .   .___.
             | 2               X
@@ -2388,7 +2774,7 @@ namespace TheseusUnitTests
         }
 
         [TestMethod]
-        public void c_MinotaurReaction_Diagonal_3blocks_downleft_3()
+        public void d_MinotaurReaction_Diagonal_blockedleft_3blocks_downleft_3()
         {
             Point expectedPoint, actualPoint, minStart, thesStart;
             minStart = new Point(3, 0);
@@ -2399,12 +2785,15 @@ namespace TheseusUnitTests
             Minotaur minotaur = aGame.GetMinotaur();
 
             aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.West | TheWalls.East;
+            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
             aGame.GetTheseus().Coordinate = thesStart;
             aGame.GetMinotaur().Coordinate = minStart;
 
             /*
             .___.___.___.___.
-            | 0   1   2   M |
+            | 0   1   2 | M |
             .   .   .   .   .
             | 1             |
             .   .   .   .   .___.
@@ -2420,6 +2809,78 @@ namespace TheseusUnitTests
 
             Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
         }
-        
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockeddown_3blocks_downleft_3()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(2, 3);
+            expectedPoint = new Point(2, 1);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.East;
+            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2   M |
+            .   .   .   .___.
+            | 1             |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3       T     |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
+        [TestMethod]
+        public void d_MinotaurReaction_Diagonal_blockeddownleft_3blocks_downleft_3()
+        {
+            Point expectedPoint, actualPoint, minStart, thesStart;
+            minStart = new Point(3, 0);
+            thesStart = new Point(2, 3);
+            expectedPoint = new Point(3, 0);
+            Game aGame = new Game();
+            Theseus theseus = aGame.GetTheseus();
+            Minotaur minotaur = aGame.GetMinotaur();
+
+            aGame.SetTestMap(2);
+            Tile[,] theMap = aGame.GetMap();
+            theMap[3, 0].MyWalls = TheWalls.North | TheWalls.South | TheWalls.East | TheWalls.West;
+            theMap[3, 1].MyWalls = TheWalls.North | TheWalls.East;
+            theMap[2, 0].MyWalls = TheWalls.North | TheWalls.East;
+            aGame.GetTheseus().Coordinate = thesStart;
+            aGame.GetMinotaur().Coordinate = minStart;
+
+            /*
+            .___.___.___.___.
+            | 0   1   2 | M |
+            .   .   .   .___.
+            | 1             |
+            .   .   .   .   .___.
+            | 2               X
+            .   .   .   .   .___.
+            | 3       T     |
+            .___.___.___.___. */
+
+
+
+            aGame.GetMinotaur().Hunt();
+            actualPoint = aGame.GetMinotaurPosition();
+
+            Assert.AreEqual(expectedPoint, actualPoint, "Minotaur was not on the expected Tile");
+        }
     }
 }
