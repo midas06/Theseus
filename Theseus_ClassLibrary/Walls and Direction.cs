@@ -8,7 +8,7 @@ using System.Drawing;
 namespace Theseus_ClassLibrary
 {
     [Flags]
-    enum TheWalls
+    public enum TheWalls
     {
         None = 0x0,
         North = 0x1,

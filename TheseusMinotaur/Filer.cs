@@ -8,7 +8,7 @@ namespace TheseusMinotaur
 {
     class Filer
     {
-        Tile[][,] allMyMaps = new Tile[100][,];
+        public Tile[][,] allMyMaps = new Tile[100][,];
         Tile[,] theMap;
         Theseus theseus;
         Minotaur minotaur;
@@ -106,14 +106,14 @@ namespace TheseusMinotaur
             theMap[1, 4].MyWalls = TheWalls.West | TheWalls.East | TheWalls.End;
 
             theMap[1, 1].MyWalls = TheWalls.East | TheWalls.West | TheWalls.South;
-            theMap[0, 1].MyWalls = TheWalls.East;
+            theMap[0, 1].MyWalls = TheWalls.East | TheWalls.West;
             theMap[2, 1].MyWalls = TheWalls.West;
             theMap[1, 2].MyWalls = TheWalls.North;
 
             theMap[5, 2].MyWalls = TheWalls.East | TheWalls.West | TheWalls.South;
             theMap[4, 2].MyWalls = TheWalls.East;
             theMap[6, 2].MyWalls = TheWalls.West | TheWalls.East;
-            theMap[5, 3].MyWalls = TheWalls.North;
+            theMap[5, 3].MyWalls = TheWalls.North | TheWalls.South;
 
 
 
@@ -330,6 +330,8 @@ namespace TheseusMinotaur
             theMap[4, 0].MyWalls = TheWalls.East | TheWalls.West | TheWalls.End;
             theMap[5, 0].MyWalls = TheWalls.West;
 
+            theMap[3, 4].MyWalls = TheWalls.East;
+
 
 
             allMyMaps[6] = theMap;
@@ -511,14 +513,19 @@ namespace TheseusMinotaur
                 }
             }
 
-            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.West;
-            theMap[0, 3].MyWalls = TheWalls.South | TheWalls.West;
+            theMap[0, 0].MyWalls = TheWalls.North | TheWalls.West; // TheWalls.West;// 
+            theMap[0, 3].MyWalls = TheWalls.South | TheWalls.West; //TheWalls.West; // TheWalls.South | TheWalls.West;
             theMap[3, 0].MyWalls = TheWalls.North | TheWalls.East;
             theMap[3, 3].MyWalls = TheWalls.South | TheWalls.East;
             theMap[4, 2].MyWalls = TheWalls.North | TheWalls.South | TheWalls.End;
             theMap[4, 1].MyWalls = TheWalls.West | TheWalls.South;
             theMap[4, 3].MyWalls = TheWalls.West | TheWalls.North;
 
+            theMap[1, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.South | TheWalls.West;
+            theMap[1, 0].MyWalls = TheWalls.North | TheWalls.South;
+            theMap[1, 2].MyWalls = TheWalls.North;
+            theMap[2, 1].MyWalls = TheWalls.West;
+            theMap[0, 1].MyWalls = TheWalls.East | TheWalls.West;
 
 
             allMyMaps[9] = theMap;

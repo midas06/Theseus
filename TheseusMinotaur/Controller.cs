@@ -45,10 +45,20 @@ namespace TheseusMinotaur
         {
             view.Start();
             model.SetMap(view.SetLevel("Choose a map"));
+            /*//model.TestOuterWalls(model.GetMap());
+            //model.WestWallBroken(model.GetMap());
+            // model.EastWallBroken(model.GetMap());
+            // model.SouthWallBroken(model.GetMap());
+            //model.NorthWallBroken(model.GetMap());*/
+            //model.TestEastWalls();
+            //model.TestSouthWalls();
+            //model.TestCorners(model.GetMap());
+            //model.TestAllInnerTiles();
             while (!model.Run())
             {
                 GameOver();
             }
+            Console.ReadKey();
         }
     }
 }

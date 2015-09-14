@@ -12,7 +12,7 @@ namespace Theseus_ClassLibrary
         {
 
         }
-        internal TheWalls MyWalls { get; set; }
+        public TheWalls MyWalls { get; set; }
 
     }
 }

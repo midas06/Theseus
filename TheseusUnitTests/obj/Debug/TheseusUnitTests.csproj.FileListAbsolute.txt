@@ -5,3 +5,17 @@ H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\bin\Debug\Theseus_
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.pdb
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.dll
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.pdb
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\bin\Debug\TheseusUnitTests.dll
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\bin\Debug\TheseusUnitTests.pdb
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.dll
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.pdb
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.dll
+C:\Users\Harry\Documents\2015\sem2\c#\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.pdb
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\bin\Debug\TheseusUnitTests.dll
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\bin\Debug\TheseusUnitTests.pdb
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.dll
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\bin\Debug\Theseus_ClassLibrary.pdb
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.csprojResolveAssemblyReference.cache
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.dll
+\\Adfsstud1\f-i\hzl0001\Documents\Downloads\theseus (1)\Theseus\TheseusUnitTests\obj\Debug\TheseusUnitTests.pdb

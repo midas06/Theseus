@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Theseus_ClassLibrary
 {
-    class Filer
+    public class Filer
     {
         Tile[][,] allMyMaps = new Tile[10][,];
         Tile[,] theMap;
@@ -106,20 +106,21 @@ namespace Theseus_ClassLibrary
             theMap[1, 4].MyWalls = TheWalls.West | TheWalls.East | TheWalls.End;
 
             theMap[1, 1].MyWalls = TheWalls.East | TheWalls.West | TheWalls.South;
-            theMap[0, 1].MyWalls = TheWalls.East;
+            theMap[0, 1].MyWalls = TheWalls.East | TheWalls.West;
             theMap[2, 1].MyWalls = TheWalls.West;
             theMap[1, 2].MyWalls = TheWalls.North;
 
             theMap[5, 2].MyWalls = TheWalls.East | TheWalls.West | TheWalls.South;
             theMap[4, 2].MyWalls = TheWalls.East;
             theMap[6, 2].MyWalls = TheWalls.West | TheWalls.East;
-            theMap[5, 3].MyWalls = TheWalls.North;
+            theMap[5, 3].MyWalls = TheWalls.North | TheWalls.South;
 
 
 
             allMyMaps[2] = theMap;
 
         }
+
 
         protected void SetMapThree()
         {
@@ -330,6 +331,8 @@ namespace Theseus_ClassLibrary
             theMap[4, 0].MyWalls = TheWalls.East | TheWalls.West | TheWalls.End;
             theMap[5, 0].MyWalls = TheWalls.West;
 
+            theMap[3, 4].MyWalls = TheWalls.East;
+
 
 
             allMyMaps[6] = theMap;
@@ -459,12 +462,24 @@ namespace Theseus_ClassLibrary
 
         /***** UNIT TEST STUFF ****/
 
-        Tile[][,] allMyTestMaps = new Tile[10][,];
+        public Tile[][,] GetAllMyMaps()
+        {
+            return allMyMaps;
+        }
+
+        public Tile[][,] GetAllMyTestMaps()
+        {
+            return allMyTestMaps;
+        }
+
+
+            Tile[][,] allMyTestMaps = new Tile[10][,];
 
         public void InitTestCases()
         {
             SetTestMapOne();
             SetTestMapTwo();
+            SetTestMapThree();
         }
 
         public void SetTestCharacters(int testMap)
@@ -476,6 +491,10 @@ namespace Theseus_ClassLibrary
                     minotaur = SetMinotaur(3, 1);
                     break;
                 case 2:
+                    theseus = SetTheseus(3, 0);
+                    minotaur = SetMinotaur(0, 0);
+                    break;
+                case 3:
                     theseus = SetTheseus(3, 0);
                     minotaur = SetMinotaur(0, 0);
                     break;
@@ -552,6 +571,40 @@ namespace Theseus_ClassLibrary
 
 
             allMyTestMaps[2] = theMap;
+        }
+
+        protected void SetTestMapThree()
+        {
+            theMap = CreateMap(5, 4);
+
+            for (int i = 0; i < 4; i++)
+            {
+                theMap[i, 0].MyWalls = TheWalls.North;
+                theMap[i, 3].MyWalls = TheWalls.South;
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i != 2)
+                {
+                    theMap[0, i].MyWalls = TheWalls.West;
+                    theMap[3, i].MyWalls = TheWalls.East;
+                }
+            }
+
+            theMap[0, 0].MyWalls = TheWalls.West;
+            theMap[0, 3].MyWalls = TheWalls.West;
+            theMap[3, 0].MyWalls = TheWalls.North;
+            theMap[3, 3].MyWalls = TheWalls.South | TheWalls.East;
+            theMap[4, 2].MyWalls = TheWalls.North | TheWalls.South | TheWalls.End;
+            theMap[4, 1].MyWalls = TheWalls.West | TheWalls.South;
+            theMap[4, 3].MyWalls = TheWalls.West | TheWalls.North;
+
+            theMap[1, 1].MyWalls = TheWalls.North | TheWalls.East | TheWalls.South | TheWalls.West;
+
+
+
+            allMyTestMaps[3] = theMap;
         }
 
 
