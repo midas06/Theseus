@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="Dump.cs" />
     <Compile Include="Filer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Minotaur.cs" />
