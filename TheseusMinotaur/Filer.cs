@@ -8,7 +8,7 @@ namespace TheseusMinotaur
 {
     class Filer
     {
-        public Tile[][,] allMyMaps = new Tile[100][,];
+        Tile[][,] allMyMaps = new Tile[8][,];
         Tile[,] theMap;
         Theseus theseus;
         Minotaur minotaur;
@@ -39,11 +39,11 @@ namespace TheseusMinotaur
             minotaur = new Minotaur(newX, newY);
             return minotaur;
         }
-        public Minotaur GetMinotaur()
+        internal Minotaur GetMinotaur()
         {
             return minotaur;
         }
-        public Theseus GetTheseus()
+        internal Theseus GetTheseus()
         {
             return theseus;
         }
@@ -409,7 +409,10 @@ namespace TheseusMinotaur
             SetMapSix();
             SetMapSeven();
         }
-
+        internal int GetTotalMaps()
+        {
+            return allMyMaps.Length - 1;
+        }
 
         protected void SetCharacters(int theMap)
         {
@@ -449,14 +452,11 @@ namespace TheseusMinotaur
         }
 
 
-        public Tile[,] GetMap(int theMap)
+        internal Tile[,] GetMap(int theMap)
         {
             SetCharacters(theMap);
             return allMyMaps[theMap];
         }
 
-
-
-        
     }
 }

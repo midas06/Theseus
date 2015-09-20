@@ -70,7 +70,6 @@ namespace TheseusMinotaur
             if (!IsBlocked(direction))
             {
                 Coordinate.Offset(direction);
-                //Console.WriteLine(Coordinate);
                 return true;
             }
             return false;

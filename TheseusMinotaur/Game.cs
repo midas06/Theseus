@@ -13,15 +13,22 @@ namespace TheseusMinotaur
         Theseus theseus;
         Tile[,] theMap;
         Filer theFiler;
+        IView theView;
         int currentMap;
 
         /**** Import Map from Filer */
 
+        public void Init(IView newView)
+        {
+            theFiler = new Filer();
+            theFiler.Init();
+            SetView(newView);
+        }
+
+
         public bool SetMap(int aMap)
         {
             currentMap = aMap;
-            theFiler = new Filer();
-            theFiler.Init();
             if (theFiler.GetMap(aMap) != null)
             {
                 theMap = theFiler.GetMap(aMap);
@@ -60,7 +67,7 @@ namespace TheseusMinotaur
             minotaur.SetGame(this);
         }
 
-        protected void DrawMap()
+        protected String DrawMap()
         {
             string output = "";
             int width = theMap.GetLength(0);
@@ -193,7 +200,7 @@ namespace TheseusMinotaur
             output += ".\n";
 
 
-            Console.WriteLine(output);
+           return output;
         }
 
 
@@ -208,9 +215,13 @@ namespace TheseusMinotaur
         {
             return theseus;
         }
+        internal Minotaur GetMinotaur()
+        {
+            return minotaur;
+        }
 
         /**** Test functions */
-        protected String TestMap(Tile[,] aMap)
+        /*protected String TestMap(Tile[,] aMap)
         {
             string output = "";
             foreach (Tile tile in aMap)
@@ -219,7 +230,7 @@ namespace TheseusMinotaur
             }
             output += "minotaur " + minotaur.Coordinate + "\n" + "theseus " + theseus.Coordinate;
             return output;
-        }
+        }*/
 
 
         /**** Game functions */
@@ -277,43 +288,56 @@ namespace TheseusMinotaur
             return false;
         }
 
+        public int GetLevel()
+        {
+            return currentMap;
+        }
+        public int GetTotalMaps()
+        {
+            return theFiler.GetTotalMaps();
+        }
+
+        public void SetView(IView newView)
+        {
+            theView = newView;
+        }
 
         /* The go button */
         public bool Run()
         {
-            Console.Clear();
-            Console.WriteLine("**** LEVEL " + currentMap.ToString() + " ****\n");
-            DrawMap();
+            theView.Start();
+            theView.Display("**** LEVEL " + currentMap.ToString() + " ****\n");
+            theView.Display(DrawMap());
             while (IsGameOver() == false)
             {
-                Console.WriteLine("\nPress Up, Down, Left, Right to move; Press A to do nothing");
+                theView.Display("\nPress Up, Down, Left, Right to move; Press A to do nothing");
                 while (!Move())
                 {
-                    Console.Clear();
-                    Console.WriteLine("**** LEVEL " + currentMap.ToString() + " ****\n");
-                    DrawMap();
-                    Console.WriteLine("\nPress Up, Down, Left, Right to move; Press A to do nothing");
-                    Console.WriteLine("blocked");
+                    theView.Start();
+                    theView.Display("**** LEVEL " + currentMap.ToString() + " ****\n");
+                    theView.Display(DrawMap());
+                    theView.Display("\nPress Up, Down, Left, Right to move; Press A to do nothing");
+                    theView.Display("blocked");
                 }
                 if (!theseus.IsFinished())
                 {
                     minotaur.Hunt();
 
                 }
-                Console.Clear();
-                Console.WriteLine("**** LEVEL " + currentMap.ToString() + " ****\n");
-                DrawMap();
+                theView.Start();
+                theView.Display("**** LEVEL " + currentMap.ToString() + " ****\n");
+                theView.Display(DrawMap());
 
             }
             if (IsGameOver() && theseus.IsFinished())
             {
-                Console.WriteLine("Congrats!");
+                theView.Display("Congrats!");
                 return false;
             }
             if (IsGameOver() && minotaur.HasEaten())
             {
-                Console.WriteLine("You were eaten by the Minotaur :(\n");
-                Console.WriteLine("Game over\n");
+                theView.Display("You were eaten by the Minotaur :(\n");
+                theView.Display("Game over\n");
                 return false;
             }
             return true;

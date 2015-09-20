@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Theseus_ClassLibrary;
 using System.Drawing;
+using System.Windows.Input;
 
 namespace TheseusUnitTests
 {
@@ -137,8 +138,6 @@ namespace TheseusUnitTests
 
             Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not on the expected Tile");
         }
-        
-
-
+       
     }
 }
