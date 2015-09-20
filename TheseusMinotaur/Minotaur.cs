@@ -43,14 +43,14 @@ namespace TheseusMinotaur
             {
                 if (!Move(Direction.Up))
                 {
-                    //Console.WriteLine("blocked");
+                    //trapped, do nothing
                 }
             }
             if (Coordinate.Y < theseus.Coordinate.Y)
             {
                 if (!Move(Direction.Down))
                 {
-                    //Console.WriteLine("blocked");
+                    //trapped, do nothing
                 }
             }
         }
@@ -60,7 +60,6 @@ namespace TheseusMinotaur
             Theseus theseus = myGame.GetTheseus();
             for (int i = 0; i < 2; i++)
             {
-                //Console.WriteLine("M turn " + (i + 1));
                 // if minotaur's X value isn't the same as theseus'
                 if (Coordinate.X != theseus.Coordinate.X)
                 {

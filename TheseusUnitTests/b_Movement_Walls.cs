@@ -33,7 +33,7 @@ namespace TheseusUnitTests
 
             actual = aGame.GetTheseus().IsBlocked(Direction.Up);
 
-            Assert.AreEqual(expected, actual, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expected, actual, "Theseus did not recognise he was blocked");
         }
         [TestMethod]
         public void b_IsBlockedTest_Down()
@@ -59,7 +59,7 @@ namespace TheseusUnitTests
 
             actual = aGame.GetTheseus().IsBlocked(Direction.Down);
 
-            Assert.AreEqual(expected, actual, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expected, actual, "Theseus did not recognise he was blocked");
         }
         [TestMethod]
         public void b_IsBlockedTest_Left()
@@ -86,7 +86,7 @@ namespace TheseusUnitTests
 
             actual = aGame.GetTheseus().IsBlocked(Direction.Left);
 
-            Assert.AreEqual(expected, actual, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expected, actual, "Theseus did not recognise he was blocked");
         }
         [TestMethod]
         public void b_IsBlockedTest_Right()
@@ -114,7 +114,7 @@ namespace TheseusUnitTests
 
             actual = aGame.GetTheseus().IsBlocked(Direction.Right);
 
-            Assert.AreEqual(expected, actual, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expected, actual, "Theseus did not recognise he was blocked");
         }
         [TestMethod]
         public void b_BlockedMovementTest_Up()
@@ -141,7 +141,7 @@ namespace TheseusUnitTests
             aGame.GetTheseus().Move(Direction.Up);
             actualPoint = aGame.GetTheseusPosition();
 
-            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not stopped by the block. Superman?");
         }
         [TestMethod]
         public void b_BlockedMovementTest_Down()
@@ -169,7 +169,7 @@ namespace TheseusUnitTests
             aGame.GetTheseus().Move(Direction.Down);
             actualPoint = aGame.GetTheseusPosition();
 
-            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not stopped by the block. Superman?");
         }
         [TestMethod]
         public void b_BlockedMovementTest_Left()
@@ -197,7 +197,7 @@ namespace TheseusUnitTests
             aGame.GetTheseus().Move(Direction.Left);
             actualPoint = aGame.GetTheseusPosition();
 
-            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not stopped by the block. Superman?");
         }
         [TestMethod]
         public void b_BlockedMovementTest_Right()
@@ -225,7 +225,7 @@ namespace TheseusUnitTests
             aGame.GetTheseus().Move(Direction.Right);
             actualPoint = aGame.GetTheseusPosition();
 
-            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not on the expected Tile");
+            Assert.AreEqual(expectedPoint, actualPoint, "Theseus was not stopped by the block. Superman?");
         }
     }
 }

@@ -242,27 +242,22 @@ namespace TheseusMinotaur
 
             if (theKey.Key == ConsoleKey.UpArrow)
             {
-                //Console.WriteLine("Up");
                 return Direction.Up;
             }
             if (theKey.Key == ConsoleKey.DownArrow)
             {
-                //Console.WriteLine("Down");
                 return Direction.Down;
             }
             if (theKey.Key == ConsoleKey.LeftArrow)
             {
-                //Console.WriteLine("Left");
                 return Direction.Left;
             }
             if (theKey.Key == ConsoleKey.RightArrow)
             {
-                //Console.WriteLine("Right");
                 return Direction.Right;
             }
             if (theKey.Key == ConsoleKey.A)
             {
-                //Console.WriteLine("Stayed still");
                 return Direction.Pass;
             }
             return new Point();
