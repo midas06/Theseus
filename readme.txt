@@ -79,3 +79,9 @@ Implemented:
 
 	- Finished basic test cases
 	- if have time - change nextlevel method in Game
+
+20th Sep:
+
+	- changed protection level of entire program
+	- made app fully MVC, not relying on Console.Writeline any more
+	- end game scenario implemented
