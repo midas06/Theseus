@@ -85,3 +85,9 @@ Implemented:
 	- changed protection level of entire program
 	- made app fully MVC, not relying on Console.Writeline any more
 	- end game scenario implemented
+
+21st Sep:
+
+	- to do for 2nd iteration:
+		- View takes input, passes to controller, passes to model
+		- Controller has an exit function, closes instances of the View and Model

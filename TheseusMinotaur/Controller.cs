@@ -35,6 +35,7 @@ namespace TheseusMinotaur
             }
             if (theKey.Key == ConsoleKey.X)
             {
+                // new stop method in controller
                 System.Environment.Exit(-1);
             }
         }
